@@ -37,14 +37,16 @@ Algoritmo Examen1T
 	
 	Dimension vNombres[numAlumnos], vNumeros[numAlumnos];
 	
-	num = mostrarMenu();
-	Escribir num;
-	
-	Segun num Hacer
-		1:
-			datosAlumnos(vNombres, vNumeros, numAlumnos);
-		2:
-			Escribir "Ejercicio 6";
-	Fin Segun
+	Repetir
+		num = mostrarMenu();
+		
+		Segun num Hacer
+			1:
+				datosAlumnos(vNombres, vNumeros, numAlumnos);
+			2:
+				Escribir "Ejercicio 6";
+		Fin Segun
+		
+	Hasta Que num = 3
 	
 FinAlgoritmo
