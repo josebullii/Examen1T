@@ -28,9 +28,31 @@ SubProceso datosAlumnos (vNombres, vNumeros, numAlumnos)
 	
 FinSubProceso
 
+Funcion comparacion <- viejoven (vNombres, vNumeros, numAlumnos)
+	Definir i, edadmayor, edadmenor, posicionmayor, posicionmenor como Entero;
+	edadmayor = 0;
+	edadmenor = 100;
+	
+	Para i = 0 Hasta numAlumnos - 1 Con Paso 1 Hacer
+		Si vNumeros[i] > edadmayor Entonces
+			edadmayor = vNumeros[i];
+			posicionmayor = i;
+		FinSi
+		
+		Si vNumeros[i] < edadmenor Entonces
+			edadmenor = vNumeros[i];
+			posicionmenor = i;
+		FinSi
+	Fin Para
+	
+	Escribir "El mayor es " vNombres[posicionmayor];
+	Escribir "El menor es " vNombres[posicionmenor];
+	
+FinFuncion
+
 Algoritmo Examen1T
-	Definir num, numAlumnos, nomAlumnos, edadAlumnos, i Como Entero;
-	Definir menu, vNombres, vNumeros Como Caracter;
+	Definir num, numAlumnos, nomAlumnos, edadAlumnos, i, vNumeros Como Entero;
+	Definir menu, comparacion, vNombres Como Caracter;
 	
 	Escribir "Dime el número de alumnos";
 	Leer numAlumnos;
@@ -43,8 +65,9 @@ Algoritmo Examen1T
 		Segun num Hacer
 			1:
 				datosAlumnos(vNombres, vNumeros, numAlumnos);
-			2:
-				Escribir "Ejercicio 6";
+			2:			
+				comparacion = viejoven(vNombres, vNumeros, numAlumnos);
+				Escribir comparacion;
 		Fin Segun
 		
 	Hasta Que num = 3
